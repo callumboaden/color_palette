@@ -1,6 +1,7 @@
 .Navbar 
 {
     display: flex;
+    width: 100%;
     align-items: center;
     height: 6vh;
 }
@@ -38,4 +39,10 @@
     height: 13px;
     margin-left: -7px;
     margin-top: -3px;
+}
+
+.select-container
+{
+    margin-left: auto;
+    margin-right: 20px;
 }
