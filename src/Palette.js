@@ -38,6 +38,7 @@ class Palette extends Component {
                     format={format}
                     changeLevel={this.changeLevel}
                     handleChange={this.changeFormat}
+                    showSlider
                 />
                 <div className="Palette-colors">
                 

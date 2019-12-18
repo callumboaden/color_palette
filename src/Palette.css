@@ -1,14 +1,17 @@
 .Palette 
 {
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 .Palette-colors 
 {
+    
+    height: 90%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    height: 90%;
 }
 
 .slider {

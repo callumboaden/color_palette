@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './Footer.css';
 
 class Footer extends Component {
-    render() { 
+    render() {
+        const { paletteName, emoji } = this.props;
         return (  
             <div className="Footer">
-                <span>{this.props.paletteName}</span>
-                <span>{this.props.paletteEmoji}</span>
+                <span>{ paletteName }</span>
+                <span>{ emoji }</span>
             </div>
         );
     }
