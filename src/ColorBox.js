@@ -54,9 +54,65 @@ const styles = {
         textTransform: "uppercase",
         textDecoration: "none",
         opacity: "0",
+    },
+    boxContent: {
+        color: props => 
+            chroma(props.background).luminance() <= 0.09 ? "white" : "black",
+        position: "absolute", 
+        left: "0",
+        bottom: "0",
+        padding: "10px",
+        letterSpacing: "1px",
+        textTransform: "uppercase",  
+        fontSize: "12px"
+    },
+    copyOverlay: {
+        opacity: "0",
+        zIndex: "0",
+        width: "100%",
+        height: "100%",
+        transform: "scale(0.1)",
+        transition: "transform .6s ease-in-out"
+    },
+    showOverlay: {
+        opacity: "1",
+        transform: "scale(50)",
+        zIndex: "10",
+        position: "absolute"
+    },
+    copyMessage: {
+        position: "fixed",
+        left: "0",
+        right: "0",
+        top: "0",
+        bottom: "0",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        fontSize: "2.5rem",
+        transform: "scale(0.1)",
+        opacity: "0",
+        color: "#FFFFFF",
+        "& h1": {
+            fontWeight: "400",
+            textAlign: "center",
+            padding: "1rem",
+            marginBottom: "0",
+            textTransform: "uppercase",
+            textShadow: "1px 2px #000",
+            background: "rgba(255, 255, 255, .2)",
+            width: "100%"
+        }
+    },
+    showCopyMessage: {
+        opacity: "1",
+        transform: "scale(1)",
+        zIndex: "25",
+        transition: "all 0.25s ease-in-out",
+        transitionDelay: ".25s"
     }
 }
-
 
 class ColorBox extends Component {
     constructor(props) {
@@ -71,25 +127,23 @@ class ColorBox extends Component {
        })   
     }
     render() {
-        const { name, background, paletteId, colorId, showingFullPalette, classes  } = this.props
-        const { copied } = this.state
-        const isDarkColor = chroma(background).luminance() >= 0.6 ? "black" : "white";
+        const { copied } = this.state;
+        const { name, background, paletteId, colorId, showingFullPalette, classes  } = this.props;
         return (
             <CopyToClipboard text={ background } onCopy={this.changeCopyState}>
                 <div style={{ background: background }} className={classes.ColorBox}>
                     <div 
                         style={{ background: background }} 
-                        className={`copy-overlay ${copied && "show"}`} 
+                        className={`${classes.copyOverlay} ${copied && classes.showOverlay}`} 
                     />
-                    <div className={`copy-msg ${copied && "show"}`} >
+                    <div className={`${classes.copyMessage} ${copied && classes.showCopyMessage}`} >
                         <h1>Copied!</h1>
                         <p className={classes.copyText}>{ background }</p>
                     </div>
                     <div className="copy-container">
-                        <div 
-                        className="box-content">
-                            <span className={isDarkColor && "light-text"}>{ name }</span>
-                        </div>
+                        <div className={classes.boxContent}>
+                            <span>{ name }</span>
+                        </div>  
                         <button className={classes.copyButton}>Copy</button>
                     </div>
                     {
