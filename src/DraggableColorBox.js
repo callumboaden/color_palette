@@ -9,7 +9,8 @@ const styles = {
     display: "inline-block",
     position: "relative",
     width: "20%",
-    height: "25%"
+    height: "25%",
+    marginBottom: "-6px"
   },
   boxContent: {
     color: props =>
@@ -29,7 +30,6 @@ const styles = {
 };
 
 function DraggableColorBox(props) {
-    console.log(props)
   const { classes, name, color, handleClick } = props;
   return (
     <div className={classes.root} style={{ backgroundColor: color }}>
