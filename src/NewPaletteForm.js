@@ -10,9 +10,7 @@ import PaletteFormNav from "./PaletteFormNav";
 import DraggableColorList from "./DraggableColorList";
 import ColorPickerForm from "./ColorPickerForm";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { ChromePicker } from "react-color";
 import { arrayMove } from "react-sortable-hoc";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import styles from "./styles/NewPaletteFormStyles";
 
 class NewPaletteForm extends Component {
@@ -23,10 +21,7 @@ class NewPaletteForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      open: true,
-      colors: []
-    };
+    this.state = { open: true, colors: this.props.palettes[0].colors };
 
     this.clearPalette = this.clearPalette.bind(this);
     this.generateRandomColor = this.generateRandomColor.bind(this);
@@ -117,9 +112,9 @@ class NewPaletteForm extends Component {
             </IconButton>
           </div>
           <Divider />
-          <Typography variant="h5">Design your palette</Typography>
-          <div className={classes.drawerBody}>
-            <div>
+          <div className={classes.container}>
+            <Typography variant="h5">Design your palette</Typography>
+            <div className={classes.buttons}>
               <Button
                 variant="contained"
                 color="secondary"
@@ -137,7 +132,7 @@ class NewPaletteForm extends Component {
               </Button>
             </div>
             <ColorPickerForm
-              classes={classes}
+              classes={classes.colorPicker}
               paletteIsFull={paletteIsFull}
               colors={this.state.colors}
               addNewColor={this.addNewColor}
