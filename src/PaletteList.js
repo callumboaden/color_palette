@@ -16,6 +16,7 @@ class PaletteList extends Component {
                     <nav className={classes.nav}>
                         <h1>React Colors</h1>
                         <Link to="/palette/new">Create Palette</Link>
+                        <Link to="/gradient">Create Gradient</Link>
                     </nav>
                     <div className={classes.palettes}>
                         { palettes.map(palette => (

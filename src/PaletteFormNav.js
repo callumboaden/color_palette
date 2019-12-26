@@ -15,12 +15,22 @@ class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { newPaletteName: "" };
+    this.state = { newPaletteName: "", formShowing: false };
     this.handleChange = this.handleChange.bind(this);
+    this.showForm = this.showForm.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  showForm() {
+    this.setState({ formShowing: true });
+  }
+
+  hideForm() {
+    this.setState({ formShowing: false });
   }
 
   render() {
@@ -55,16 +65,33 @@ class PaletteFormNav extends Component {
               </IconButton>
               <Typography variant="h6">Create A Palette</Typography>
             </div>
-            <div className={classes.nav}>
-              <PaletteMetaForm
-                newPaletteName={newPaletteName}
-                classes={classes}
-                palettes={palettes}
-                handleSubmit={handleSubmit}
-              />
+            <div className={classes.nav}>             
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <Button variant="contained" color="secondary">
+                  Go Back
+                </Button>
+              </Link>
+              <Button
+                className={classes.saveButton}
+                variant="contained"
+                color="primary"
+                onClick={this.showForm}
+              >
+                Save
+              </Button>
             </div>
           </Toolbar>
         </AppBar>
+
+        {this.state.formShowing && (
+          <PaletteMetaForm
+            newPaletteName={newPaletteName}
+            classes={classes}
+            palettes={palettes}
+            handleSubmit={handleSubmit}
+            hideForm={this.hideForm}
+          />
+        )}
       </div>
     );
   }

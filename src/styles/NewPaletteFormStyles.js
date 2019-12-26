@@ -18,6 +18,9 @@ export default theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  nav: {
+    display: 'flex',
+  },
   menu: {
     display: "flex",
     alignItems: "center"
@@ -31,15 +34,19 @@ export default theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  saveButton: {
+    marginLeft: theme.spacing(1),
+  },
   paletteForm: {
     display: "flex",
     alignItems: "center",
   },
   paletteNameInput: {
-    marginRight:  theme.spacing(2),
+    width: "100%"
   },
   savePaletteButton: {
     marginLeft:  theme.spacing(1),
+    marginRight: theme.spacing(2)
   },
   hide: {
     display: 'none',
