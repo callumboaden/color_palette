@@ -7,8 +7,9 @@ export default {
         padding: "0.5rem",
         position: "relative",
         overflow: "hidden",
-        "&:hover": {
-            cursor: "pointer"
+        cursor: "pointer",
+        "&:hover svg": {
+            opacity: 1
         }
     },
     colors: {
@@ -29,6 +30,17 @@ export default {
     },
     emoji: {
         marginLeft: "0.5rem"
+    },
+    deleteButton: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+        background: 'red',
+        color: 'white',
+        padding: '.25rem',
+        zIndex: 99,
+        opacity: 0,
+        transition: ".25s"
     },
     miniColorBox: {
         height: "25%",
