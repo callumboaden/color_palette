@@ -13,15 +13,15 @@ export default {
         },
         [sizes.down("lg")]: {
             width: "25%",
-            height: props => (props.showingFullPalette ? "20%" : "50%")
+            height: props => (props.showingFullPalette ? "20%" : "33.33333%")
         },
         [sizes.down("md")]: {
             width: "50%",
-            height: props => (props.showingFullPalette ? "10%" : "50%")
+            height: props => (props.showingFullPalette ? "10%" : "20%")
         },
         [sizes.down("xs")]: {
             width: "100%",
-            height: props => (props.showingFullPalette ? "5%" : "50%")
+            height: props => (props.showingFullPalette ? "5%" : "10%")
         },
         
     },
@@ -104,6 +104,7 @@ export default {
         opacity: "0",
         color: "#FFFFFF",
         "& h1": {
+            fontSize: "5rem",
             fontWeight: "400",
             textAlign: "center",
             padding: "1rem",

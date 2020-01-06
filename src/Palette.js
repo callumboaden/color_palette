@@ -44,7 +44,7 @@ class Palette extends Component {
                 <div className={classes.PaletteColors}>
                 
                     { colorBoxes }
-
+                    
                 </div>
                 <PaletteFooter
                     paletteName={paletteName}
