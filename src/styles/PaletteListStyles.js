@@ -1,3 +1,4 @@
+import sizes from './sizes';
 export default {
     root: {
         backgroundColor: "white",  
@@ -7,12 +8,14 @@ export default {
         justifyContent: "center"
     },
     container: {
-        /* width: "50%", */
-        m6Width: "1000px",
+        width: "50%", 
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        [sizes.down("xl")]: {
+            width: "80%"
+        }
     },
     nav: {
         display: "flex",
@@ -29,6 +32,13 @@ export default {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3, 30%)",
-        gridGap: "5%"
+        justifyContent: "center",
+        gridGap: "1.5rem",
+        [sizes.down("sm")]: {
+            gridTemplateColumns: "repeat(2, 50%)"
+        },
+        [sizes.down("xs")]: {
+            gridTemplateColumns: "repeat(1, 75%)"
+        }
     }
 }

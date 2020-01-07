@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/styles";
 import DeleteRoundedIcon from "@material-ui/icons/DeleteRounded";
 import { SortableElement } from 'react-sortable-hoc';
+import sizes from './styles/sizes';
 import chroma from "chroma-js";
 
 const styles = {
@@ -10,7 +11,19 @@ const styles = {
     position: "relative",
     width: "20%",
     height: "25%",
-    marginBottom: "-6px"
+    marginBottom: "-6px",
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: "20%"
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: "10%"
+    },
+    [sizes.down("sm")]: {
+      width: "100%",
+      height: "5%"
+    }
   },
   boxContent: {
     color: props =>
